@@ -360,6 +360,89 @@ body {
   transition: opacity 0.15s ease;
 }
 
+/* Telegram CTA */
+.telegram-cta {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--bg-primary);
+}
+
+.telegram-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+}
+
+.telegram-cta-content {
+  max-width: 600px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.telegram-icon {
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.telegram-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, var(--text-primary), var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.telegram-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 300;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.telegram-subtitle strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.telegram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1rem;
+  padding: 0.9rem 2.4rem;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+  color: var(--bg-primary);
+  font-family: var(--font-family);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 24px rgba(79, 195, 247, 0.25);
+}
+
+.telegram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(79, 195, 247, 0.4);
+}
+
+.telegram-button svg {
+  transform: scaleX(-1);
+}
+
 .footer {
   text-align: center;
   padding: 3rem 2rem;
