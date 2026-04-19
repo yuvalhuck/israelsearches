@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מה ישראל מחפשת?</title>
+  <meta name="description" content="ניתוח מגמות חיפוש בגוגל בישראל — 5 שנים סביב ה-7 באוקטובר 2023">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">מה ישראל מחפשת?</h1>
+      <p class="hero-subtitle">ניתוח מגמות חיפוש בגוגל לפני ואחרי ה-7 באוקטובר 2023</p>
+      <div class="hero-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="intro" class="intro-page">
+    <div class="intro-content">
+      <p>בשנתיים וחצי שחלפו מאז ה-7 באוקטובר 2023, החברה הישראלית עברה טלטלות היסטוריות, מלחמה מתמשכת ומשברים שעיצבו מחדש את המציאות. כדי להבין את עומק השינוי בנפש הלאומית, הלכנו 5 שנים לאחור. ההשוואה של 2.5 השנים שקדמו לאותה שבת שחורה, מול 2.5 השנים שעברו מאז, אינה מקרית; פרק הזמן הזה ארוך מספיק כדי לנטרל רעשי רקע ותגובות פאניקה רגעיות, ומאפשר לנו להצביע בוודאות סטטיסטית גבוהה על שבירה של מגמות מתמשכות ועל שינויים אמיתיים וארוכי טווח.</p>
+      <p>הנתונים המוצגים כאן מתבססים על ניתוח דפוסי החיפוש ב-Google Trends בישראל בלבד. אנו לא מתיימרים לומר שכל אזרחי המדינה משתמשים במנוע החיפוש באותה תדירות, אך נתח האוכלוסייה שמחפש בגוגל הוא עצום, יציב ומגוון מספיק כדי לשמש כמדגם מייצג ומהימן להלך הרוח הציבורי. כל הנתונים שקופים לחלוטין, ואנו מזמינים אתכם להיכנס בעצמכם למערכת של גוגל, לחפש את המונחים ולהעמיק במגמות השונות.</p>
+      <p>כדי להבטיח אמינות מקסימלית, החלנו על הנתונים מבחנים סטטיסטיים מחמירים. לעיתים תבחינו בגרף המראה שינוי קל באחוזים, אך הסטטוס שלו יוגדר כ"ללא שינוי משמעותי" או "המגמה נשמרה". הסיבה לכך היא שהחישוב המתמטי שלנו בוחן עד כמה השינוי נראה יציב ומובהק לאורך זמן ביחס למגמה המקורית. גולשים המעוניינים לצלול אל הנתונים שמאחורי הקלעים מוזמנים ללחוץ על כפתור "הצג רווח סמך" המופיע בכל גרף.</p>
+      <p>לבסוף, חשוב להדגיש: הנתונים מתעדים שינויים בהתנהגות הגלישה, אך אנו נמנעים מלקבוע עבורם פרשנות חד-משמעית. כך למשל, המונח "הריון" הציג מגמת עלייה קבועה ויציבה במשך שנתיים וחצי לפני תחילת המלחמה, אך לאחריה רשם צניחה מובהקת של 21%. הנתון הזה לא מעיד בהכרח על ירידה בשיעור ההריונות בפועל; ייתכן מאוד שנשים הרות פשוט טרודות בימים אלו בסוגיות ביטחוניות או כלכליות, ופחות מחפשות מידע ברשת סביב ההריון. זוהי רק השערה. תפקידנו כאן אינו להמציא תיאוריות, אלא להניח בפניכם את המראה האובייקטיבית ביותר של השינוי – ולהשאיר לכם את המחשבה על מה המילים האלו מספרות עלינו.</p>
+    </div>
+  </section>
+
+  <nav id="category-nav"></nav>
+
+  <main id="charts-container"></main>
+
+  <footer class="footer">
+    <p>מקור הנתונים: <a href="https://trends.google.com" target="_blank" rel="noopener">Google Trends</a></p>
+    <p class="footer-credit"></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1/dist/html2canvas.min.js"></script>
+
+  <script src="js/data.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/regression.js"></script>
+  <script src="js/indicators.js"></script>
+  <script src="js/milestones.js"></script>
+  <script src="js/chart.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
