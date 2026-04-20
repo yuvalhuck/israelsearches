@@ -111,6 +111,9 @@
       var wrapper = document.getElementById('intro-text-wrapper');
       var btn = document.getElementById('intro-expand-btn');
       wrapper.classList.toggle('expanded');
+      if (!wrapper.classList.contains('expanded')) {
+        document.getElementById('intro').scrollIntoView({behavior:'smooth'});
+      }
       btn.innerHTML = wrapper.classList.contains('expanded') ? 'הצג פחות' : 'המשך קריאה &#8230;';
     }
   </script>

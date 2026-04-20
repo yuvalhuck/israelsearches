@@ -35,45 +35,53 @@
 
   function setActive(index) {
     if (index === activeIndex) return;
-    if (activeIndex >= 0) buttons[activeIndex].classList.remove('active');
+    if (activeIndex >= 0 && activeIndex < buttons.length) buttons[activeIndex].classList.remove('active');
     aiBtn.classList.remove('active');
     activeIndex = index;
     if (index === buttons.length) {
       aiBtn.classList.add('active');
-    } else {
+    } else if (index >= 0) {
       buttons[index].classList.add('active');
     }
 
     const btn = index === buttons.length ? aiBtn : buttons[index];
-    if (window.innerWidth <= 768) {
+    if (btn && window.innerWidth <= 768) {
       btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          const idx = dividers.indexOf(entry.target);
-          if (idx >= 0) setActive(idx);
-        }
-      }
-    },
-    { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
-  );
-
-  dividers.forEach((d) => observer.observe(d));
-
   const aiSummary = document.getElementById('ai-summary');
-  if (aiSummary) {
-    const aiObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setActive(buttons.length);
-      },
-      { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
-    );
-    aiObserver.observe(aiSummary);
+  const threshold = window.innerHeight * 0.35;
+
+  function updateActive() {
+    if (aiSummary) {
+      const aiRect = aiSummary.getBoundingClientRect();
+      if (aiRect.top < threshold && aiRect.bottom > threshold) {
+        setActive(buttons.length);
+        return;
+      }
+    }
+
+    let best = -1;
+    for (let i = dividers.length - 1; i >= 0; i--) {
+      if (dividers[i].getBoundingClientRect().top < threshold) {
+        best = i;
+        break;
+      }
+    }
+    if (best >= 0) setActive(best);
   }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        updateActive();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   const hero = document.getElementById('hero');
   if (hero) {
