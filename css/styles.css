@@ -112,6 +112,48 @@ body {
   margin-bottom: 0;
 }
 
+.intro-text-wrapper {
+  max-height: 12rem;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease;
+}
+
+.intro-text-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6rem;
+  background: linear-gradient(to bottom, transparent, var(--bg-primary));
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.intro-text-wrapper.expanded {
+  max-height: 200rem;
+}
+
+.intro-text-wrapper.expanded::after {
+  opacity: 0;
+}
+
+.intro-expand-link {
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--text-muted);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.intro-expand-link:hover {
+  color: var(--accent-cyan);
+}
+
 .category-divider {
   min-height: 60vh;
   display: flex;
